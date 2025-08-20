@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nenavath Arun | Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Portfolio.</div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#" id="portfolio-link">Portfolio</a></li>
+                    <li><a href="#" id="contact-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section (hidden by default) -->
+    <section class="contact-section" id="contact-section" style="display:none;">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:nenavatharun973@gmail.com">nenavatharun973@gmail.com</a></p>
+        <p>Phone: +91-7671939105</p>
+        <p>Feel free to reach out for collaborations or inquiries!</p>
+    </section>
+
+    <!-- Portfolio Section (hidden by default) -->
+    <section class="portfolio-section" id="portfolio-section" style="display:none;">
+        <h2>My Projects</h2>
+        <div class="projects-container">
+            <div class="project">
+                <h3>Pizza Sales Project - SQL & Power BI</h3>
+                <p>Data analysis and visualization of pizza sales to derive actionable business insights.</p>
+                <a href="https://github.com/arunnenavath123/Pizza-Sales-Project-SQL-PowerBI" target="_blank"
+                    class="btn-green">View on GitHub</a>
+            </div>
+            <div class="project">
+                <h3>Bank Loan Analysis Using Python</h3>
+                <p>Analyzing bank loan data using Python for better understanding and prediction.</p>
+                <a href="https://github.com/arunnenavath123/Bank_Loan_Analysis_Using_Python" target="_blank"
+                    class="btn-green">View on GitHub</a>
+            </div>
+            <div class="project">
+                <h3>HR Analytics Dashboard Using Excel</h3>
+                <p>Excel dashboard to analyze employee attrition patterns and demographics.</p>
+                <a href="https://github.com/arunnenavath123/HR_Analytics_Dashboard_Using_Excel" target="_blank"
+                    class="btn-green">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Portfolio Box (Home Section) -->
+    <div class="body-anim">
+        <div class="box">
+            <div class="box-details">
+                <h1>Nenavath Arun</h1>
+                <div class="analyst-move">
+                    I'm an <span class="green">Aspiring Data Analyst</span>
+                </div>
+                <p>
+                    Aspiring Data Analyst with strong skills in Python, SQL, Excel, and Power BI.
+                    Experienced in data analysis, visualization, and data-driven storytelling.
+                    Proficient in Excel for data cleaning, Pivot Tables, and KPI reporting.
+                    Enthusiastic about transforming data into actionable business insights.
+                </p>
+                <div class="cta-social">
+                    <a href="#" class="btn-green">Download CV</a>
+                    <div class="social-icons">
+                        <a href="https://github.com/arunnenavath123"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/nenavath-arun-6a1532317/"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="box-image">
+                <div class="circle-bg animate-motion">
+                    <img src="home.jpg" alt="Nenavath Arun" class="profile-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for section toggling -->
+
+    <script>
+        const portfolioLink = document.getElementById('portfolio-link');
+        const contactLink = document.getElementById('contact-link');
+        const homeSection = document.querySelector('.body-anim');
+        const portfolioSection = document.getElementById('portfolio-section');
+        const contactSection = document.getElementById('contact-section');
+
+        portfolioLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            portfolioSection.style.display = 'block';
+            contactSection.style.display = 'none';
+            homeSection.style.display = 'none';
+
+            setActiveLink(portfolioLink);
+        });
+
+        contactLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            contactSection.style.display = 'block';
+            portfolioSection.style.display = 'none';
+            homeSection.style.display = 'none';
+
+            setActiveLink(contactLink);
+        });
+
+        const homeLink = document.querySelector('a.active');
+        homeLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            homeSection.style.display = 'block';
+            portfolioSection.style.display = 'none';
+            contactSection.style.display = 'none';
+
+            setActiveLink(homeLink);
+        });
+
+        function setActiveLink(activeLink) {
+            const navLinks = document.querySelectorAll('.nav li a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            activeLink.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
